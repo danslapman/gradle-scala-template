@@ -1,0 +1,33 @@
+buildscript {
+    ext.scalaVersion = "2.11.4"
+}
+
+apply plugin: 'scala'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:$scalaVersion"
+    compile "org.scala-lang:scala-reflect:$scalaVersion"
+    testCompile "junit:junit:4.11"
+}
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from configurations.runtime
+}
+
+build.dependsOn(copyToLib)
+
+jar {
+    manifest {
+        attributes (
+            'Main-Class': 'testapp.App',
+            'Class-Path': configurations.compile.collect { it.getName() }.join(' ')
+        )
+    }
+}
