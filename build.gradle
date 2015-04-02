@@ -1,5 +1,5 @@
 buildscript {
-    ext.scalaVersion = "2.11.5"
+    ext.scalaVersion = "2.11.6"
 }
 
 apply plugin: 'scala'
@@ -22,10 +22,6 @@ task copyToLib(type: Copy) {
 }
 
 build.dependsOn(copyToLib)
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.2.1'
-}
 
 jar {
     manifest {
