@@ -1,5 +1,5 @@
 buildscript {
-    ext.scalaVersion = "2.11.6"
+    ext.scalaVersion = "2.11.7"
 }
 
 apply plugin: 'scala'
