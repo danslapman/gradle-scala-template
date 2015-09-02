@@ -23,6 +23,7 @@ task copyToLib(type: Copy) {
 
 tasks.withType(ScalaCompile) {
     scalaCompileOptions.useAnt = false
+    scalaCompileOptions.additionalParameters = ["-unchecked", "-deprecation", "-feature", "-Xfatal-warnings"]
 }
 
 build.dependsOn(copyToLib)
