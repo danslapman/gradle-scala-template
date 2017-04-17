@@ -1,5 +1,5 @@
 buildscript {
-    ext.scalaVersion = "2.11.7"
+    ext.scalaVersion = "2.12.1"
 }
 
 apply plugin: 'scala'
@@ -22,7 +22,6 @@ task copyToLib(type: Copy) {
 }
 
 tasks.withType(ScalaCompile) {
-    scalaCompileOptions.useAnt = false
     scalaCompileOptions.additionalParameters = ["-unchecked", "-deprecation", "-feature", "-Xfatal-warnings"]
 }
 
