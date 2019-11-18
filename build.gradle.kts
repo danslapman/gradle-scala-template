@@ -1,11 +1,16 @@
+buildscript {
+    dependencies {
+        classpath("com.adtran:scala-multiversion-plugin:1.+")
+    }
+}
+
 plugins {
     scala
-    id("com.adtran.scala-multiversion-plugin") version "1.0.35"
 }
 
 allprojects {
-    group = "danslapman"
-    version = "0.1"
+    apply(plugin = "scala")
+    apply(plugin = "com.adtran.scala-multiversion-plugin")
 
     repositories {
         mavenCentral()
@@ -17,16 +22,17 @@ allprojects {
         testImplementation("org.scalatest:scalatest_%%:3.0.8")
         testImplementation("junit:junit:4.12")
     }
+}
+
+subprojects {
+    group = "danslapman"
+    version = "0.1"
 
     tasks.withType<ScalaCompile>().configureEach {
         scalaCompileOptions.additionalParameters.apply {
             listOf("-feature", "-Xfatal-warnings")
         }
     }
-}
-
-subprojects {
-    apply(plugin = "scala")
 }
 
 tasks.wrapper {
