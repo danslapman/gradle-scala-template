@@ -61,7 +61,7 @@ subprojects {
         }
 
         scalaCompileOptions.additionalParameters =
-            listOf("-release", "11", "-feature", "-Xfatal-warnings") + listOfNotNull(plugins)
+            listOf("-feature", "-Xfatal-warnings") + listOfNotNull(plugins)
     }
 }
 
