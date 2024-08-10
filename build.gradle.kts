@@ -7,7 +7,7 @@ buildscript {
 }
 
 plugins {
-    id("com.github.prokod.gradle-crossbuild").version("0.16.0")
+    id("com.github.prokod.gradle-crossbuild").version("0.17.0")
 }
 
 allprojects {
@@ -33,8 +33,8 @@ subprojects {
 
     crossBuild {
         scalaVersionsCatalog = mapOf(
-                "2.12" to "2.12.18",
-                "2.13" to "2.13.12"
+                "2.12" to "2.12.19",
+                "2.13" to "2.13.14"
         )
 
         builds {
@@ -44,7 +44,7 @@ subprojects {
     }
 
     dependencies {
-        implementation("org.scala-lang:scala-library:2.12.18")
+        implementation("org.scala-lang:scala-library:2.12.19")
         testImplementation("org.scalatest:scalatest_2.12:3.2.18")
         "scalaCompilerPlugin" ("com.olegpy:better-monadic-for_2.12:0.3.1")
         testImplementation("com.vladsch.flexmark:flexmark-all:0.64.8")
